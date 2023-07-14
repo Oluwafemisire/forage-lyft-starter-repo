@@ -1,5 +1,5 @@
 from serviceable.battery.battery import Battery
-from utils import add_years_to_date
+from date_adjuster import add_years_to_date
 
 class SplinderBattery(Battery):
     def __init__(self, last_service_date,current_service_date):
@@ -7,7 +7,7 @@ class SplinderBattery(Battery):
         self._current_service_date = current_service_date
 
     def needs_service(self):
-        proposed_service_date = add_years_to_date(self._last_service_date, 4) 
+        proposed_service_date = add_years_to_date(self._last_service_date, 2) 
         if proposed_service_date < self._current_service_date:
             return True
         else:
