@@ -9,27 +9,32 @@ from car import Car
 
 class CarFactory:
     @staticmethod
-    def create_calliope(current_date, last_service_date, current_mileage, last_service_mileage):
+    def create_calliope(current_date, last_service_date, current_mileage, last_service_mileage, tire_wear_array):
         engine = CapuletEngine(current_mileage, last_service_mileage)
         battery = SplinderBattery(last_service_date, current_date)
-        return Car(engine, battery)
+        tire = CarriganTire(tire_wear_array)
+        return Car(engine, battery, tire)
     @staticmethod
-    def create_glissade(current_date, last_service_date, current_mileage, last_service_mileage):
+    def create_glissade(current_date, last_service_date, current_mileage, last_service_mileage, tire_wear_array):
         engine = WilloughbyEngine(current_mileage, last_service_mileage)
         battery = SplinderBattery(last_service_date, current_date)
-        return Car(engine, battery)
+        tire = OctoPrimeTire(tire_wear_array)
+        return Car(engine, battery,tire)
     @staticmethod
-    def create_palindrome(current_date, last_service_date, warning_light_is_on):
+    def create_palindrome(current_date, last_service_date, warning_light_is_on,tire_wear_array):
         engine = SternmanEngine(warning_light_is_on)
         battery = SplinderBattery(last_service_date, current_date)
-        return Car(engine, battery)
+        tire = CarriganTire(tire_wear_array)
+        return Car(engine, battery, tire)
     @staticmethod
-    def create_rorschach(current_date, last_service_date, current_mileage, last_service_mileage):
+    def create_rorschach(current_date, last_service_date, current_mileage, last_service_mileage, tire_wear_array):
         engine = WilloughbyEngine(current_mileage, last_service_mileage)
         battery = NubbinBattery(last_service_date, current_date)
-        return Car(engine, battery)
+        tire = OctoPrimeTire(tire_wear_array)
+        return Car(engine, battery, tire)
     @staticmethod
-    def create_thovex(current_date, last_service_date, current_mileage, last_service_mileage):
+    def create_thovex(current_date, last_service_date, current_mileage, last_service_mileage, tire_wear_array):
         engine = CapuletEngine(current_mileage, last_service_mileage)
         battery = NubbinBattery(last_service_date, current_date)
-        return Car(engine, battery)
+        tire = CarriganTire(tire_wear_array)
+        return Car(engine, battery, tire) 
